@@ -1,0 +1,43 @@
+package com.example.demo;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.service.QuoteService;
+import com.example.demo.ws.obj.Quote;
+
+@SpringBootTest
+class DemoApplicationTests {
+	
+	QuoteService quoteService;
+	
+	@BeforeAll
+	public void before() {
+		this.quoteService = new QuoteService();
+	}
+	
+	@Test
+	public void testGetQuote() {
+		this.quoteService.addQuote(new Quote("ABC", "D"));
+		assertEquals("ABC", this.quoteService.getQuote().getValue());
+	}
+	
+	@Test
+	public void testGetQouteMultiple() {
+		this.quoteService.addQuote(new Quote("ABC", "D"));
+		this.quoteService.addQuote(new Quote("EFG", "H"));
+		assertTrue(
+				"ABC".equals(this.quoteService.getQuote().getValue()) ||
+				"EFG".equals(this.quoteService.getQuote().getValue()));
+	}
+
+	@Test
+	void contextLoads() {
+	}
+
+}

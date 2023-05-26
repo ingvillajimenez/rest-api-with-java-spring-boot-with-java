@@ -1,0 +1,5 @@
+package com.example.demo.ws.endpoints.rest;
+
+public class DemoEndPoint {
+
+}

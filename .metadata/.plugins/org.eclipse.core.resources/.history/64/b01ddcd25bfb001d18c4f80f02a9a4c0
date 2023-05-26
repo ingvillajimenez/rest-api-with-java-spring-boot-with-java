@@ -1,0 +1,5 @@
+package com.example.hello.ws.endpoints.rest;
+
+public class HelloEndPoint {
+
+}

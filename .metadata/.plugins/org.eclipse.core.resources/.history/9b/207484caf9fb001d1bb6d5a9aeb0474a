@@ -1,0 +1,17 @@
+package com.example.exercise1.endpoints;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Exercise1Endpoint {
+
+	@RequestMapping("/hello")
+	public String sayHello() {
+		return "hello world";
+	}
+	
+	public String echo(String body) {
+		return "echo: "	+ body;
+	}
+}
